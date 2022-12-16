@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+  <title>Home | GuitarHub</title>
+
+  <link rel="stylesheet" href="/assets/css/login.css" />
+</head>
+<body>
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <h1 class="top-title">Login</h1>
+
+  <div class="center-container">
+    <form action="/login" method="POST" class="center-form">
+      <% if(flash.errors) { %>
+        <div>
+          <p class="alert alert-error"><%= flash.errors.message %></p>
+        </div>
+      <% } %>
+
+      <div class="input-group">
+        <p>Username</p>
+        <input class="input-box" type="text" name="username" placeholder="Enter your username" />
+      </div>
+
+      <div class="input-group">
+        <p>Password</p>
+        <input class="input-box" type="password" name="password" placeholder="Enter your password" />
+      </div>
+
+      <div>
+        <a class="simple-link" href="/forgot-password">Forgot password?</a>
+      </div>
+
+      <button class="button-submit" type="submit">Submit</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>

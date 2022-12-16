@@ -1,0 +1,18 @@
+.poster-image {
+  height: 90vh;
+  object-fit: cover;
+}
+
+.poster {
+  display: flex;
+  scroll-snap-align: start;
+}
+
+.poster-container {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  place-items: center center;
+  height: 90vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}

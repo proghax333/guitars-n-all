@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../../partials/head'); %>
+
+  <title>Lessons | GuitarHub</title>
+  <link rel="stylesheet" href="/assets/css/lessons/lesson-view.css" />
+</head>
+<body>
+<header>
+  <%- include('../../partials/header'); %>
+</header>
+
+<main>
+  <div class="lessons-view">
+    <div class="lessons-playlist">
+      <h1 class="lessons-playlist-title"><%= type %></h1>
+    
+      <%
+        for (const playlist_item of videos) {
+          const { contentDetails: { videoId }} = playlist_item;
+          const { snippet: { title, description }} = playlist_item;
+      %>
+        <div class="lessons-playlist-item">
+          <a href="/lessons/<%= type %>?v=<%= videoId %>">
+            <h4 class="item-title"><%= title %></h4>
+            <p class="item-description"><%= description.substring(0, MAX_DESCRIPTION_LENGTH) %>...</p>
+          </a>
+        </div>
+      <% } %>
+    </div>
+    <% if(loadedVideo) {
+      const {
+        contentDetails: { videoId },
+        snippet: { title, description }
+      } = loadedVideo;  
+    %>
+      <div class="lesson-view">
+        <div class="video-box">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/<%= videoId %>"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullscreen="true">
+          </iframe>
+        </div>
+        <hr />
+        <div class="video-info">
+          <h2 class="video-title"><%= title %></h2>
+          <p class="video-description"><%= description %></p>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</main>
+
+<footer>
+  <%- include('../../partials/footer'); %>
+</footer>
+</body>
+</html>
