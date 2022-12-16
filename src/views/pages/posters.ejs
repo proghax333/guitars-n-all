@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+  <title>Posters | GuitarHub</title>
+
+  <link rel="stylesheet" href="/assets/css/posters.css" />
+</head>
+<body>
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="poster-container">
+    <% for(const poster of posters) { %>
+      <div class="poster">
+        <img src="<%= poster %>" alt="guitar poster" class="poster-image">
+      </div>
+    <% } %>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>

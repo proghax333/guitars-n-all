@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+  <title>Home | GuitarHub</title>
+
+  <link rel="stylesheet" href="/assets/css/signup.css" />
+</head>
+<body>
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <h1 class="top-title">Sign up</h1>
+
+  <div class="center-container">
+    <form action="/signup" method="POST" class="center-form">
+
+      <div class="input-group">
+        <p>Name</p>
+        <input class="input-box" type="text" name="name" placeholder="Enter your name" />
+      </div>
+
+      <div class="input-group">
+        <p>Username</p>
+        <input class="input-box" type="text" name="username" placeholder="Enter your username" />
+      </div>
+
+      <div class="input-group">
+        <p>Phone number</p>
+        <input class="input-box" type="text" name="phone_number" placeholder="Enter your phone number" />
+      </div>
+
+      <div class="input-group">
+        <p>Password</p>
+        <input class="input-box" type="password" name="password" placeholder="Enter your password" />
+      </div>
+
+      <div class="input-group">
+        <p>Confirm Password</p>
+        <input class="input-box" type="password" name="confirm_password" placeholder="Enter your password again" />
+      </div>
+
+      <div>
+        <a class="simple-link" href="/login">Already have an account? Sign in</a>
+      </div>
+
+      <button class="button-submit" type="submit">Create an account</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>

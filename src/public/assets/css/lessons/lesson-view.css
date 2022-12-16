@@ -1,0 +1,69 @@
+
+.lessons-view {
+  display: flex;
+  width: 100%;
+}
+
+.lessons-playlist {
+  min-width: 22rem;
+  width: 22rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  border-right-width: 1px;
+  height: 90vh;
+}
+
+.lessons-playlist-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  padding: 0.5rem 0.25rem;
+
+  text-transform: uppercase;
+}
+
+.lessons-playlist-item {
+  width: 100%;
+  border-bottom: solid 1px #ddd;
+  padding: 0.75rem 0.25rem;
+}
+
+.lessons-playlist-item .item-title {
+  font-size: 0.85rem;
+}
+
+.lessons-playlist-item .item-description {
+  font-size: 0.80rem;
+}
+
+.lesson-view {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.video-box {
+  width: 100%;
+  max-width: 100vw;
+  height: 24rem;
+}
+
+.video-box iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.video-info {
+  padding: 0.5rem;
+}
+
+.video-info .video-title {
+  font-size: 1.5rem;
+}
+
+.video-info .video-description {
+  font-size: 0.90rem;
+  white-space: pre-wrap;
+
+  margin: 0.5rem 0;
+}

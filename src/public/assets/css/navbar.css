@@ -1,0 +1,51 @@
+
+.nav-container {
+  display: flex;
+
+  /* background: lightblue; */
+  padding: 0.5rem 0.5rem;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-content {
+  padding: 0 0 0 2.5rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-list > li {
+  color: #111;
+  font-size: var(--font-sm);
+}
+
+.nav-list > li > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-buttons {
+  margin-left: auto;
+}
+
+.nav-buttons button {
+  padding: 0.75rem;
+  margin: 0 0.1rem;
+  width: 6rem;
+
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+}

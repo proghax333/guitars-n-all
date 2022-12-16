@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../../partials/head'); %>
+
+  <title>Lessons | GuitarHub</title>
+  <link rel="stylesheet" href="/assets/css/lessons/index.css" />
+</head>
+<body>
+<header>
+  <%- include('../../partials/header'); %>
+</header>
+
+<main>
+  <h1 class="top-title">Lessons</h1>
+
+  <div class="lessons">
+    <div class="lessons-grid">
+      <% for(const lesson of lessons) { %>
+        <a href="/lessons/<%= lesson.slug %>">
+          <div class="lesson-card">
+            <p class="lesson-card-name">
+              <%= lesson.name %>
+            </p>
+            <p class="lesson-card-description">
+              <%= lesson.description %>
+            </p>
+          </div>
+        </a>
+      <% } %>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%- include('../../partials/footer'); %>
+</footer>
+</body>
+</html>
