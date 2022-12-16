@@ -4,6 +4,115 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-sm: 0.9rem;
+  --primary: rgb(54, 51, 224);
+  --secondary: rgb(7, 7, 31);
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.border-1 {
+  border: solid 1px gray;
+}
+
+.top-title {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Form related styles */
+.center-container {
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.center-form {
+  width: 100%;
+  max-width: 24rem;
+  padding: 0 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.20rem;
+  width: 100%;
+
+  padding: 0.40rem 0;
+}
+
+.input-box {
+  padding: 0.5rem 0.5rem;
+}
+
+.button-submit {
+  margin: 0.5rem 0;
+  padding: 0.75rem 0;
+  width: 100%;
+
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 0.90rem;
+}
+
+.simple-link {
+  text-decoration: underline;
+  color: blue;
+  font-size: 0.85rem;
+}
+
+.alert {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: limegreen;
+  color: white;
+}
+
+.alert-error {
+  background-color: #F33;
+  color: white;
 }

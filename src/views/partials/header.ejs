@@ -1,3 +1,37 @@
+
+<link rel="stylesheet" href="/assets/css/navbar.css" />
 <nav>
-  
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="https://thumbs.dreamstime.com/b/guitar-logo-icon-vector-illustration-design-174769361.jpg" width="32"
+        height="32" />
+      <h4>GuitarHub</h4>
+    </div>
+    <div class="nav-content">
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/card">Shop</a></li>
+        <li><a href="/lessons">Lessons</a></li>
+        <li><a href="/posters">Posters</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+    <div class="nav-buttons">
+      <% if(auth) { %>
+        <div class="flex items-center gap-2">
+          <p>Welcome, <%= profile.name %>!</p>
+          <a href="/logout">
+            <button class="border-1">Logout</button>
+          </a>
+        </div>
+      <% } else { %>
+        <a href="/login">
+          <button class="bg-primary">Login</button>
+        </a>
+        <a href="/signup">
+          <button class="border-1">Sign Up</button>
+        </a>
+      <% } %>
+    </div>
+  </div>
 </nav>

@@ -1,0 +1,33 @@
+.lesson-card {
+  padding: 1rem;
+  border-radius: 0.3rem;
+  border: solid 1px #ddd;
+  max-width: 12rem;
+  height: 5.75rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-card-name {
+  font-weight: bold;
+}
+
+.lesson-card-description {
+  font-size: var(--font-sm);
+  color: #444;
+}
+
+.lessons {
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

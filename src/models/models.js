@@ -1,5 +1,6 @@
 
 import { Sequelize } from "sequelize";
+export { QueryTypes } from "sequelize";
 
 const { DB_CONNECTION_STRING } = process.env;
 
@@ -14,9 +15,5 @@ export async function connectToDatabase() {
 }
 
 export async function loadModels() {
-  const [accounts, meta] = await db.query(
-    `
-      select * from accounts;
-    `
-  );
+  
 }
