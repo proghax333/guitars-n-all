@@ -18,6 +18,8 @@ img {
   text-align: justify;
   position: relative;
   vertical-align: text-top;
+  width: 100%;
+  max-width: 40%;
 }
 
 

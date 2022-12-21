@@ -8,12 +8,66 @@ mainRouter.get("/", async (req, res, next) => {
   return res.render("pages/index");
 });
 
-mainRouter.get("/card", async (req, res, next) => {
-  return res.render("pages/card");
+mainRouter.get("/shop", async (req, res, next) => {
+  try {
+    const products = await db.query(`
+      select id, name, features, image from products;
+    `);
+
+    if(products.length > 0) {
+      const [guitars] = products;
+
+      return res.render("pages/shop", {
+        data: {
+          guitars
+        }
+      });
+    } else {
+      
+    }
+
+  } catch (error) {
+
+  }
+
+  return res.render("pages/shop", {
+    data: {}
+  });
 });
 
-mainRouter.get("/products", async (req, res, next) => {
-  return res.render("pages/products");
+mainRouter.get("/products/:id", async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const result = await db.query(`
+      select id, name, description, features, image
+      from products
+      where id = :id`,
+      {
+        replacements: { id },
+        type: QueryTypes.SELECT,
+      }
+    );
+
+    if(result.length > 0) {
+      // Product was found
+      const product = result[0];
+
+      return res.render("pages/products/product-page", {
+        data: {
+          product
+        }
+      });
+    } else {
+      // Product was not found
+    }
+  } catch (error) {
+
+  }
+
+  return res.render("pages/products/product-page", {
+    data: {}
+  });
 });
 
 
