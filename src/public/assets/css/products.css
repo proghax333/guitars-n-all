@@ -7,10 +7,12 @@
   margin-left: 20px;
 }
 
-img {
-  display:block;
-  object-fit: cover;
-  object-position: center;
+.container img.product-image {
+  width: 20rem;
+  height: 20rem;
+  object-fit: contain;
+  -o-object-fit: contain;
+  /* object-position: center; */
 }
 
 .right{
@@ -19,7 +21,7 @@ img {
   position: relative;
   vertical-align: text-top;
   width: 100%;
-  max-width: 40%;
+  max-width: 45%;
 }
 
 
