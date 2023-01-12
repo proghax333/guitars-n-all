@@ -11,11 +11,26 @@ mainRouter.get("/", async (req, res, next) => {
 mainRouter.get("/shop", async (req, res, next) => {
   try {
     const products = await db.query(`
-      select id, name, features, image from products;
+    select P.id, P.name, P.features, P.image, SP.seller_id,
+		if(count(V.id) = 0,
+			json_array(),
+			json_arrayagg(V.variant_name)
+		) as variants,
+        if(count(SP.id) = 0,
+            json_array(),
+			json_arrayagg(json_object('id', SP.id, 'price', price, "seller_id", seller_id))
+		) as prices
+      from products as P
+      left join seller_products as SP
+      on (P.id=SP.product_id)
+      left join variants as V
+      on (SP.variant_id=V.id)
+      group by P.id;
     `);
 
+
     if(products.length > 0) {
-      const [guitars] = products;
+      let [guitars] = products;
 
       return res.render("pages/shop", {
         data: {
@@ -39,10 +54,30 @@ mainRouter.get("/products/:id", async (req, res, next) => {
   const { id } = req.params;
 
   try {
+    // const result = await db.query(`
+    //   select id, name, description, features, image
+    //   from products
+    //   where id = :id`,
     const result = await db.query(`
-      select id, name, description, features, image
-      from products
-      where id = :id`,
+      select P.id, P.name, P.features, P.image, P.description,
+        SP.seller_id,
+        if(count(V.id) = 0,
+          json_array(),
+          json_arrayagg(V.variant_name)
+        ) as variants,
+            if(count(SP.id) = 0,
+                json_array(),
+          json_arrayagg(json_object('id', SP.id, 'price', price, "seller_id", seller_id))
+        ) as prices
+      
+      from products as P
+      left join seller_products as SP
+      on (P.id=SP.product_id)
+      left join variants as V
+      on (SP.variant_id=V.id)
+      
+      where P.id = :id
+      group by P.id;`,
       {
         replacements: { id },
         type: QueryTypes.SELECT,
@@ -87,6 +122,10 @@ mainRouter.get("/posters", async (req, res, next) => {
     posters: static_posters,
   });
 });
+
+mainRouter.get("/nearby-classes", async (req, res, next) => {
+  return res.render("pages/nearby-classes");
+})
 
 // Logout
 mainRouter.get("/logout", async (req, res, next) => {
@@ -251,5 +290,9 @@ mainRouter.post("/signup", async (req, res, next) => {
 mainRouter.get("/about", async (req, res, next) => {
   return res.render("pages/about");
 });
+
+mainRouter.get("/payment", async (req, res, next) => {
+  return res.render("pages/credit");
+})
 
 export default mainRouter;

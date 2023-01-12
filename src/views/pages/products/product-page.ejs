@@ -28,6 +28,20 @@
       <img class="product-image" src="<%- product.image %>" />
     </div>
     <div class="right">
+      <div>
+        <h2>Prices</h2>
+        
+        <div class="product-prices-list">
+          <!-- <h3>&#x20B9;14899</h3>
+          <h3>&#x20B9;15699</h3> -->
+          <% for (const price of product.prices) {
+          %>
+          <h3>&#x20B9;<%= price.price %></h3>
+          <%
+          }
+          %>
+        </div>
+      </div>
       <h1>
         FEATURES
       </h1>
