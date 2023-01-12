@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/assets/css/nearby-classes.css" />
+
+    <%- include("../partials/head"); %>
+  </head>
+  <body>
+    <div class="fixed-container">
+      <header><%- include("../partials/header"); %></header>
+      <div class="flex flex-col">
+        <Heading m="{2}" mb="{4}" fontFamily="Oswald" fontWeight="semibold"
+          >Guitar classes near me</Heading
+        >
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/d/u/0/embed?mid=15u2RqIngjF6D90hXZE2x3L-3hhR1Szc&ehbc=2E312F"
+          height="100%"
+          width="100%"
+          class="map-frame">
+        </iframe>
+      </div>
+    </div>
+  </body>
+</html>

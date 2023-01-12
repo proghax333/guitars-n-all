@@ -80,9 +80,9 @@
     gap: 0.25rem;
     padding-top: 1rem;
   }
-  .button-bar > button {
+  .button-bar button.btn-product {
     display: flex;
-    width: 45%;
+    width: 8rem;
     margin-right: 10px; 
     --tw-bg-opacity: 1;
     background-color: #fb641b;
@@ -94,7 +94,7 @@
     color: white;
     /* background-color: pink; */
   }
-  
+
   .button-buy {
     display: flex;
     height: 100%;
@@ -108,4 +108,13 @@
   }
   .product-link{
     text-decoration: none;
+  }
+
+  .right{
+    margin-left: 4rem;
+    text-align: justify;
+    position: relative;
+    vertical-align: text-top;
+    width: 100%;
+    max-width: 45%;
   }

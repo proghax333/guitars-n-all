@@ -68,3 +68,9 @@
 .product-title {
   padding: 1rem;
 }
+
+.product-prices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.20rem;
+}

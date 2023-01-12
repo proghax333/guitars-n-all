@@ -9,7 +9,7 @@
 
 	<%- include("../partials/head"); %>
 
-		<link rel="stylesheet" href="/assets/css/shop.css" />
+	<link rel="stylesheet" href="/assets/css/shop.css" />
 </head>
 
 <body style="background-color:light">
@@ -20,7 +20,6 @@
 		<div class="flex flex-wrap">
 			<!-- card -->
 			<% if(data.guitars) {
-				console.log(data.guitars)
 				for (const product of data.guitars) { %>
 				
 			<a class="product-link" href="/products/<%- product.id %>">
@@ -33,19 +32,36 @@
 							<%- product.features %>
 						</div>
 					</div>
+					<div class="Price">
+				    	
+							<h4>Prices</h4>
+							<%
+								for (const price of product.prices) {
+							%>
+								<p>&#x20B9;&nbsp;<%= price.price %></p>
+							<%
+								}
+							%>
+					</div>
 					<div class="button-buy">
 						<div class="product-tags">
 							<p class="product-tag">guitar</p>
 							<p class="product-tag">acoustic</p>
-							<p class="product-tag">Brown</p>
+							<%
+								for (const variant of product.variants) {
+							%>
+								<p class="product-tag"><%= variant %></p>
+							<% } %>
 						</div>
 						<div class="button-bar">
-							<button>
+							<a href="/payment?type=buy_now&product_id=<%= product.id %>">
+							<button class="btn-product">
 								<img
 									src="https://imgs.search.brave.com/XM5qRhf8MNxqTyuAl09tjJX9ZQOzmpTK5DuE7hO8F0c/rs:fit:400:400:1/g:ce/aHR0cDovL2ZyZWV2/ZWN0b3IuY28vd3At/Y29udGVudC91cGxv/YWRzLzIwMDkvMDkv/NDk5NTgtbGlnaHRu/aW5nLWJvbHQtc3lt/Ym9sLW9mLWZsYXNo/LnBuZw"
 									width="30px" height="20px">
 								BUY NOW</button>
-							<button>
+							</a>
+							<button class="btn-product">
 								<img
 									src="https://imgs.search.brave.com/aUecr4Z_iVEe733FN9ZSv5Y6B1Oj5tesNiQUOZHJFyc/rs:fit:450:470:1/g:ce/aHR0cHM6Ly9jb21w/cy5jYW5zdG9ja3Bo/b3RvLmNvbS9pY29u/LW9mLWNvbnN0cnVj/dGlvbi1jYXJ0LXZl/Y3Rvci1jbGlwYXJ0/X2NzcDQwNDI4OTAy/LmpwZw"
 									width="30px" height="20px">
